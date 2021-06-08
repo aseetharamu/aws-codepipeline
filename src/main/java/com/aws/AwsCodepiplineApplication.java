@@ -23,6 +23,7 @@ public class AwsCodepiplineApplication {
 	OrderDao orderDao;
 	
 	@GetMapping("/orders")
+	//sorted orders
 	public List<Order> getOrders() {
 		return orderDao.orders().stream().
 				sorted(Comparator.comparing(Order::getPrice)).collect(Collectors.toList());
